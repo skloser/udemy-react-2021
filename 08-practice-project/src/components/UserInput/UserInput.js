@@ -22,6 +22,10 @@ const UserInput = (props) => {
     const submitUser = (event) => {
         event.preventDefault();
         
+        if (user.age < 0) {
+            
+        }
+
         props.addUser(user);
     };
 
