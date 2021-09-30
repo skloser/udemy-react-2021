@@ -1,9 +1,14 @@
 .App {
   text-align: center;
-  background-color: black;
+  background-color: #3498db;
   width: 100vw;
   height: 100vh;
-  padding: 3rem 0;
+}
+
+.wrapper {
   display: flex;
+  position: relative;
   flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
 }

@@ -1,7 +1,26 @@
+.backdrop {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position:fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+}
+
 .user-modal {
     display: flex;
     flex-direction: column;
     z-index: 100;
+    position: absolute;
+    align-self: center;
+    top:25%;
+    left: 35%;
+    background-color: white;
+    border-radius: 10px;
+    min-width: 32rem;
+    min-height: 12rem;
+    opacity: 1;
 }
 
 .user-modal__title {
@@ -9,8 +28,17 @@
     color: white;
     font-size: 1.5rem;
     min-height: 3rem;
+    border-radius: 10px 10px 0 0;
+}
+
+.user-modal__content {
+    padding: 2rem 1rem;
 }
 
 .user-modal__action {
     align-self: flex-end;
+}
+
+.button--action {
+    margin: 1rem;
 }
