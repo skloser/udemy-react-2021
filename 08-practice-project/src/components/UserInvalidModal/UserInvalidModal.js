@@ -1,4 +1,5 @@
-import "./UserInvalidModal.css";
+import classes from "./UserInvalidModal.module.css";
+import Button from "../UI/Button";
 
 const UserInvalidModal = (props) => {
 	const onCloseHandler = () => {
@@ -6,14 +7,12 @@ const UserInvalidModal = (props) => {
 	};
 
 	return (
-		<div className="backdrop" onClick={onCloseHandler}>
-			<div className="user-modal">
+		<div className={classes.backdrop} onClick={onCloseHandler}>
+			<div className={classes.userModal}>
 				<div className="user-modal__title">Invalid input</div>
 				<div className="user-modal__content">{props.message}</div>
 				<div className="user-modal__action">
-					<button onClick={onCloseHandler} className="button button--action">
-						Ok
-					</button>
+					<Button onClick={onCloseHandler} className={`${classes.button}`}>Ok</Button>
 				</div>
 			</div>
 		</div>

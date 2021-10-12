@@ -1,42 +1,61 @@
-import { useState } from 'react/cjs/react.development';
-import './UserInput.css';
+import { useState } from "react/cjs/react.development";
+import classes from "./UserInput.module.css";
+import Card from "../UI/Card";
+import Button from "../UI/Button";
 
 const UserInput = (props) => {
+	const [userName, setUserName] = useState("");
+	const [userAge, setUserAge] = useState(0);
 
-    const [user, setUser] = useState({});
+	const nameChangeHandler = (event) => {
+		setUserName(event.target.value);
+	};
 
-    const nameChangeHandler = (event) => {
+	const ageChangeHandler = (event) => {
+		setUserAge(event.target.value);
+	};
 
-        setUser((prevState) => {
-            return {...prevState, name: event.target.value};
-        });
-    };
+	const submitUser = (event) => {
+		event.preventDefault();
 
-    const ageChangeHandler = (event) => {
+		if (userAge < 0) {
+		}
 
-        setUser((prevState) => {
-            return {...prevState, age: event.target.value}
-        })
-    };
+		props.addUser({ name: userName, age: userAge });
 
-    const submitUser = (event) => {
-        event.preventDefault();
-        
-        if (user.age < 0) {
-        }
+		setUserName("");
+		setUserAge(0);
+	};
 
-        props.addUser(user);
-    };
-
-    return (
-        <form className="form">
-            <label className="form__label">Username</label>
-            <input type="text" className="form__input" onChange={nameChangeHandler}/>
-            <label className="form__label">Age (Years)</label>
-            <input type="number" className="form__input" onChange={ageChangeHandler}/>
-            <button onClick={submitUser} className="button">Add User</button>
-        </form>
-    );
+	return (
+		<Card>
+			<form className={classes.form} onSubmit={submitUser}>
+				<label htmlFor="username" className={classes.form__label}>
+					Username
+				</label>
+				<input
+					id="username"
+					type="text"
+					className={classes.form__input}
+					onChange={nameChangeHandler}
+					value={userName}
+				/>
+				<label htmlFor="age" className={classes.form__label}>
+					Age (Years)
+				</label>
+				<input
+					id="age"
+					type="number"
+					className={classes.form__input}
+					onChange={ageChangeHandler}
+					value={userAge}
+					min="0"
+					step="1"
+				/>
+				<Button type="submit">Add User</Button>
+			</form>
+		</Card>
+	);
 };
 
 export default UserInput;

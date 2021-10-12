@@ -14,13 +14,14 @@
     z-index: 100;
     position: absolute;
     align-self: center;
-    top:25%;
-    left: 35%;
+    top: 50%;
+    left: 50%;
     background-color: white;
     border-radius: 10px;
     min-width: 32rem;
     min-height: 12rem;
     opacity: 1;
+    transform: translate(-75%, -75%);
 }
 
 .user-modal__title {

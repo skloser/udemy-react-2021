@@ -29,12 +29,8 @@ function App() {
 	return (
 		<div className="App">
 			<div className="wrapper">
-				<Card>
-					<UserInput addUser={addUserHandler} />
-				</Card>
-				<Card>
-					<UserList users={users} />
-				</Card>
+				<UserInput addUser={addUserHandler} />
+				<UserList users={users} />
 				{showModal ? (
 					<UserInvalidModal
 						closeHandler={closeModalHandler}

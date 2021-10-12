@@ -1,20 +1,4 @@
-.form {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    justify-content: center;
-}
 
-.form__input {
-    border: 1px solid lightgrey;
-    line-height: 1.5rem;
-}
-
-.form__label {
-    align-self: flex-start;
-    padding: 0.3rem 0;
-    font-weight: bold;
-}
 
 .button {
     padding: 0.5rem 1rem;
@@ -25,6 +9,7 @@
     transition: all 0.2s;
     border: 0;
     border-radius: 5px;
+    font-size: inherit;
 }
 
 .button:hover {
