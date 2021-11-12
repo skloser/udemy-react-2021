@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import Card from "./components/UI/Card";
+import Wrapper from "./components/UI/Helpers/Wrapper";
 import UserInput from "./components/UserInput/UserInput";
 import UserList from "./components/UserList/UserList";
 import UserInvalidModal from "./components/UserInvalidModal/UserInvalidModal";
@@ -29,14 +29,16 @@ function App() {
 	return (
 		<div className="App">
 			<div className="wrapper">
-				<UserInput addUser={addUserHandler} />
-				<UserList users={users} />
-				{showModal ? (
-					<UserInvalidModal
-						closeHandler={closeModalHandler}
-						message={message}
-					/>
-				) : null}
+				<Wrapper>
+					<UserInput addUser={addUserHandler} />
+					<UserList users={users} />
+					{showModal ? (
+						<UserInvalidModal
+							closeHandler={closeModalHandler}
+							message={message}
+						/>
+					) : null}
+				</Wrapper>
 			</div>
 		</div>
 	);

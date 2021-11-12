@@ -1,4 +1,4 @@
-import { useState } from "react/cjs/react.development";
+import { useState, useRef } from "react/cjs/react.development";
 import classes from "./UserInput.module.css";
 import Card from "../UI/Card";
 import Button from "../UI/Button";
@@ -6,6 +6,9 @@ import Button from "../UI/Button";
 const UserInput = (props) => {
 	const [userName, setUserName] = useState("");
 	const [userAge, setUserAge] = useState(0);
+
+	const nameInputRef = useRef();
+	const ageInputRef = useRef();
 
 	const nameChangeHandler = (event) => {
 		setUserName(event.target.value);
@@ -39,6 +42,7 @@ const UserInput = (props) => {
 					className={classes.form__input}
 					onChange={nameChangeHandler}
 					value={userName}
+					ref={nameInputRef}
 				/>
 				<label htmlFor="age" className={classes.form__label}>
 					Age (Years)
@@ -51,6 +55,7 @@ const UserInput = (props) => {
 					value={userAge}
 					min="0"
 					step="1"
+					ref={ageInputRef}
 				/>
 				<Button type="submit">Add User</Button>
 			</form>
